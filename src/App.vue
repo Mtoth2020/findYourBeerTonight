@@ -1,28 +1,46 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div id="nav">
+      <Search />
+    </div>
+    <keep-alive>
+      <router-view/>
+    </keep-alive>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Search from '@/components/Search.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    Search
+  },
 }
 </script>
 
-<style>
+<style lang="scss">
+@import 'assets/font.css';
+@import 'assets/reset.css';
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  width: 100%;
+  margin: 100px auto;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: #ffffff;
+}
+
+#nav {
+  a {
+    font-weight: bold;
+    color: #2c3e50;
+    margin: 10px;
+   /* &.router-link-exact-active {
+      color: #f1f1f1;
+    }*/
+  }
 }
 </style>
